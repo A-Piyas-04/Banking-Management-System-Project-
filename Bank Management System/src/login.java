@@ -77,7 +77,7 @@ public class login extends JFrame implements ActionListener {
         button3.addActionListener(this);
         add(button3);
 
-        ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.png"));
+        ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.jpg"));
         Image iii2 = iii1.getImage().getScaledInstance(850,480,Image.SCALE_DEFAULT);
         ImageIcon iii3 = new ImageIcon(iii2);
         JLabel iiimage = new JLabel(iii3);
@@ -88,7 +88,6 @@ public class login extends JFrame implements ActionListener {
         setLayout(null);
         setSize(850,480);
         setLocation(450,200);
-        setUndecorated(true);
         setVisible(true);
     }
 
