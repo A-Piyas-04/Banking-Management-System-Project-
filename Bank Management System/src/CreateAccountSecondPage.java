@@ -77,7 +77,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         add(labelformText);
 
 
-//=======================================================================================
         this.formno = formno;
 
         JLabel labelAccDetail = new JLabel("Account Details");
@@ -152,7 +151,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         c.setBounds(570,670,100,30);
         c.addActionListener(this);
         add(c);
-//=======================================================================================
 
         setLayout(null);
         setSize(850,750);
@@ -164,27 +162,23 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        try{
+            if(e.getSource()== c){
+                //dispose();
+                System.exit(0);
+            }
+        }catch (Exception E){
+            E.printStackTrace();
+        }
+
         String rel = (String) comboBox.getSelectedItem();
         String cate = (String) comboBox2.getSelectedItem();
         String inc = (String) comboBox3.getSelectedItem();
         String edu = (String) comboBox4.getSelectedItem();
         String occ = (String) comboBox5.getSelectedItem();
 
-        String pan = textPan.getText();
-        String addhar = textAadhar.getText();
 
-        String scitizen = " ";
-        if ((r1.isSelected())){
-            scitizen = "Yes";
-        } else if (r2.isSelected()) {
-            scitizen ="No";
-        }
-        String eAccount = " ";
-        if ((r1.isSelected())){
-            eAccount = "Yes";
-        } else if (r2.isSelected()) {
-            eAccount ="No";
-        }
+
 
         try{
             if (textPan.getText().equals("") || textAadhar.getText().equals("")){

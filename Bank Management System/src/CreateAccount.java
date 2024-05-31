@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class CreateAccount extends JFrame implements ActionListener {
@@ -25,10 +29,6 @@ public class CreateAccount extends JFrame implements ActionListener {
         label1.setFont(new Font("Raleway",Font.BOLD,38));
         add(label1);
 
-        JLabel label2 = new JLabel("Page 1");
-        label2.setFont(new Font("Ralway",Font.BOLD, 22));
-        label2.setBounds(330,70,600,30);
-        add(label2);
 
         JLabel label3 = new JLabel("Personal Details");
         label3.setFont(new Font("Raleway", Font.BOLD,22));
@@ -87,9 +87,9 @@ public class CreateAccount extends JFrame implements ActionListener {
         add(optionFemale);
         
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(optionMale);
-        buttonGroup.add(optionFemale);
+        ButtonGroup genderOptions = new ButtonGroup();
+        genderOptions.add(optionMale);
+        genderOptions.add(optionFemale);
 
         JLabel labelEmail = new JLabel("Email address :");
         labelEmail.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -121,9 +121,9 @@ public class CreateAccount extends JFrame implements ActionListener {
 
 
 
-        ButtonGroup buttonGroup1 = new ButtonGroup();
-        buttonGroup1.add(optionMarried);
-        buttonGroup1.add(optionUnMarried);
+        ButtonGroup marriageOptions = new ButtonGroup();
+        marriageOptions.add(optionMarried);
+        marriageOptions.add(optionUnMarried);
 
 
         JLabel labelAdd = new JLabel("Address :");
@@ -174,62 +174,49 @@ public class CreateAccount extends JFrame implements ActionListener {
     }
 
     @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent A) {
 
         try{
-            if(e.getSource()== next){
+            if(A.getSource()== next){
                 new CreateAccountSecondPage(first);
                 dispose();
             }
         }catch(Exception E){
             E.printStackTrace();
         }
-        /*
-        String userChoice = (String) userChoiceInput.getSelectedItem();
 
-
-        String formno = first;
-        String name = textName.getText();
-        String fname = textFname.getText();
-        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
-        String gender = null;
-        if(optionMale.isSelected()){
-            gender = "Male";
-        }else if (optionFemale.isSelected()){
-            gender = "Female";
-        }
-        String email = textEmail.getText();
-        String marital =null;
-        if (optionMarried.isSelected()){
-            marital = "Married";
-        } else if (optionUnMarried.isSelected()) {
-            marital = "Unmarried";
-        }
-
-        String address = textAdd.getText();
-        String city = textcity.getText();
-        String Zipcode = textZip.getText();
-        String state = textState.getText();
-
-        try{
-            if (textName.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Fill all the fields");
+        if(A.getSource()== next) {
+            if (textName.getText().isEmpty() || textFname.getText().isEmpty() ){
+                JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
             }else {
-                Connn c = new Connn();
-                String q = "insert into CreateNewAccount values('"+formno+"', '"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"', '"+address+"', '"+city+"','"+Zipcode+"','"+state+"' )";
-                c.statement.executeUpdate(q);
-                new CreateNewAccount2(formno);
-                setVisible(false);
+                File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
+                BufferedWriter writer;
+                try {
+                    writer = new BufferedWriter(new FileWriter(file,true));
+                    writer.write("Name: " + textName.getText() + "\n");
+                    writer.write("Father's Name: " + textFname.getText() + "\n");
+                    writer.write("Address : " + textAdd.getText() + "\n");
+                    writer.write("City : " + textcity.getText() + "\n");
+                    writer.write("Zip Code : " + textAdd.getText() + "\n");
+                    writer.write("Address : " + textAdd.getText() + "\n");
+                } catch (Exception e) {
+                    //throw new RuntimeException(e);
+                    e.printStackTrace();
+                }
+
+ /*               try {
+
+                }catch (IOException e) {
+                    throw new RuntimeException(e);
+                }*/
+
             }
-
-        }catch (Exception E){
-            E.printStackTrace();
-        }*/
-
+        }
     }
 
-    public static void main(String[] args) {
-        new CreateAccount();
-    }
+            public static void main (String[] args){
+                new CreateAccount();
+            }
 }
+
 
