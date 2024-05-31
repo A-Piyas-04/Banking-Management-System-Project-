@@ -11,19 +11,7 @@ public class login extends JFrame implements ActionListener {
     JButton button1,button2,button3;
     login(){
         super("Bank Management System");
-       /* ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/bank.png"));
-        Image i2 = i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3);
-        image.setBounds(350,10,100,100);
-        add(image);
 
-        ImageIcon ii1 = new ImageIcon(ClassLoader.getSystemResource("icons/card.png"));
-        Image ii2 = ii1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
-        ImageIcon ii3 = new ImageIcon(ii2);
-        JLabel iimage = new JLabel(ii3);
-        iimage.setBounds(630,350,100,100);
-        add(iimage);*/
 
         label1 = new JLabel("WELCOME TO GOOGLY BANK");
         label1.setForeground(Color.CYAN);
@@ -77,18 +65,17 @@ public class login extends JFrame implements ActionListener {
         button3.addActionListener(this);
         add(button3);
 
-        ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.png"));
-        Image iii2 = iii1.getImage().getScaledInstance(850,480,Image.SCALE_DEFAULT);
-        ImageIcon iii3 = new ImageIcon(iii2);
-        JLabel iiimage = new JLabel(iii3);
-        iiimage.setBounds(0,0,850,480);
-        add(iiimage);
+        ImageIcon backbg1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.jpg"));
+        Image backbg2 = backbg1.getImage().getScaledInstance(850,480,Image.SCALE_DEFAULT);
+        ImageIcon backbg3 = new ImageIcon(backbg2);
+        JLabel backbgimage = new JLabel(backbg3);
+        backbgimage.setBounds(0,0,850,480);
+        add(backbgimage);
 
 
         setLayout(null);
-        setSize(850,480);
+        setSize(850,520);
         setLocation(450,200);
-        setUndecorated(true);
         setVisible(true);
     }
 
