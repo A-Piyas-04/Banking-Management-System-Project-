@@ -1,9 +1,12 @@
-
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Random;
 
 public class CreateAccount extends JFrame implements ActionListener {
@@ -11,6 +14,7 @@ public class CreateAccount extends JFrame implements ActionListener {
     JButton next;
 
     JTextField textName ,textFname, textEmail,textAdd,textcity,textZip;
+    JDateChooser dateChooser;
 
     Random ran = new Random();
     long first4 =(ran.nextLong() % 9000L) +1000L;
@@ -19,22 +23,11 @@ public class CreateAccount extends JFrame implements ActionListener {
         super ("APPLICATION FORM");
 
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3);
-        image.setBounds(25,10,100,100);
-        add(image);
-
         JLabel label1 = new JLabel("APPLICATION FORM NO."+ first);
         label1.setBounds(160,20,600,40);
         label1.setFont(new Font("Raleway",Font.BOLD,38));
         add(label1);
 
-        JLabel label2 = new JLabel("Page 1");
-        label2.setFont(new Font("Ralway",Font.BOLD, 22));
-        label2.setBounds(330,70,600,30);
-        add(label2);
 
         JLabel label3 = new JLabel("Personal Details");
         label3.setFont(new Font("Raleway", Font.BOLD,22));
@@ -66,6 +59,10 @@ public class CreateAccount extends JFrame implements ActionListener {
         DOB.setBounds(100,340,200,30);
         add(DOB);
 
+        dateChooser = new JDateChooser();
+        dateChooser.setForeground(new Color(105,105,105));
+        dateChooser.setBounds(300,340,400,30);
+        add(dateChooser);
 
         JLabel labelG = new JLabel("Gender");
         labelG.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -87,11 +84,12 @@ public class CreateAccount extends JFrame implements ActionListener {
         optionFemale.setFont(new Font("Raleway", Font.BOLD,14));
         optionFemale.setBounds(365,290,90,30);
         add(optionFemale);
+        
 
+        ButtonGroup genderOptions = new ButtonGroup();
+        genderOptions.add(optionMale);
+        genderOptions.add(optionFemale);
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(optionMale);
-        buttonGroup.add(optionFemale);
 
         JLabel labelEmail = new JLabel("Email address :");
         labelEmail.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -123,9 +121,9 @@ public class CreateAccount extends JFrame implements ActionListener {
 
 
 
-        ButtonGroup buttonGroup1 = new ButtonGroup();
-        buttonGroup1.add(optionMarried);
-        buttonGroup1.add(optionUnMarried);
+        ButtonGroup marriageOptions = new ButtonGroup();
+        marriageOptions.add(optionMarried);
+        marriageOptions.add(optionUnMarried);
 
 
         JLabel labelAdd = new JLabel("Address :");
@@ -157,7 +155,7 @@ public class CreateAccount extends JFrame implements ActionListener {
         textZip.setFont(new Font("Raleway",Font.BOLD, 14));
         textZip.setBounds(300,590,400,30);
         add(textZip);
-
+        
 
         next = new JButton("Next");
         next.setFont(new Font("Raleway",Font.BOLD, 14));
@@ -174,12 +172,65 @@ public class CreateAccount extends JFrame implements ActionListener {
         setVisible(true);
 
     }
+    //====================================================================================================
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent A) {
+
+        try {
+            if (A.getSource() == next) {
+
+                //===============================================================
+                if (textName.getText().isEmpty() || textFname.getText().isEmpty() ) {
+                    JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
+                } else {
+                    File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
+                    BufferedWriter writer;
+                    try {
+
+                        String pias = String.valueOf(dateChooser.getDate());
+
+
+                        writer = new BufferedWriter(new FileWriter(file,true));
+                        writer.write("Name: " + textName.getText() + "\n");
+                        writer.write("Father's Name: " + textFname.getText() + "\n");
+                        writer.write("Date of Birth :"+pias+"\n");
+
+                        if (optionMale.isSelected()){
+                            writer.write("Gender: male" + "\n");
+                        } else {
+                            writer.write("Gender: female" + "\n");
+                        }
+
+                        if (optionMarried.isSelected()){
+                            writer.write("Maritial Status : Married" + "\n");
+                        } else {
+                            writer.write("Maritial Status : Unmarried" + "\n");
+                        }
+
+                        writer.write("Address : " + textAdd.getText() + "\n");
+                        writer.write("City : " + textcity.getText() + "\n");
+                        writer.write("Zip Code : " + textZip.getText() + "\n");
+                        writer.write("Email : " + textEmail.getText() + "\n");
+
+                        writer.close();
+
+                        new CreateAccountSecondPage(first);
+                        dispose();
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+                    }
+
+
+                }
+            }
+        } catch (Exception E) {
+            E.printStackTrace();
+        }
     }
 
-    public static void main(String[] args) {
-        new CreateAccount();
-    }
+            public static void main (String[] args){
+                new CreateAccount();
+            }
 }
