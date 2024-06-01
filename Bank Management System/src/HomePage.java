@@ -5,11 +5,14 @@ import java.awt.event.ActionListener;
 
 public class HomePage extends JFrame implements ActionListener {
 
+
     JButton depositButton,withdrawButton,fundTransferButton,loanButton,billPaymentButton,viewInfoButton,exitButton,transactionHistoryButton,balanceButton;
     String accountNumber;
-    HomePage(String accountNumber){
+    String pin;
+    HomePage(String accountNumber,String pin){
         super("Home Page");
         this.accountNumber=accountNumber;
+        this.pin=pin;
 
         depositButton = new JButton("Deposit");
         depositButton.setFont(new Font("Raleway",Font.BOLD, 20));
@@ -105,12 +108,31 @@ public class HomePage extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new HomePage("324435245");
-    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+
+        if(e.getSource()==depositButton){
+            new Deposit(pin);
+            dispose();
+        }else if(e.getSource()==withdrawButton){
+            new Withdraw(pin);
+            dispose();
+        }else if(e.getSource()==fundTransferButton){
+            new FundTransfer(pin);
+            dispose();
+        }else if(e.getSource()==billPaymentButton){
+            new BillPayment(pin);
+            dispose();
+        }else if(e.getSource()==exitButton){
+            dispose();
+        }
     }
+    public static void main(String[] args) {
+       new HomePage("","");
+    }
+
+
 }

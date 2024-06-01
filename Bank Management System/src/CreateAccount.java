@@ -18,6 +18,11 @@ public class CreateAccount extends JFrame implements ActionListener {
 
     Random ran = new Random();
     long first4 =(ran.nextLong() % 9000L) +1000L;
+
+    public String getFirst() {
+        return first;
+    }
+
     String first = " " + Math.abs(first4);
     CreateAccount(){
         super ("APPLICATION FORM");

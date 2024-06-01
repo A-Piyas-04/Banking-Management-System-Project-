@@ -181,7 +181,9 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-
+    public static void main(String[] args) {
+        new CreateAccountSecondPage("");
+    }
 
 
 
@@ -207,12 +209,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
             File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
             BufferedWriter writer;
             try {
-
-
-
-
-
-
 
                 writer = new BufferedWriter(new FileWriter(file, true));
                 writer.write("Account Number :"+accountNumber+"\n");
@@ -246,7 +242,10 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
                 writer.close();
                 JOptionPane.showMessageDialog(null,"Account Number : "+accountNumber+"\nPIN Code : "+pin);
                 dispose();
-                new login();
+
+                //CreateAccountSecondPage CA2;
+                new HomePage(accountNumber,pin);
+
 
 
             } catch (Exception E) {
@@ -260,8 +259,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
     }
 
     }
-    public static void main(String[] args) {
-        new CreateAccountSecondPage("");
-    }
+
 }
 

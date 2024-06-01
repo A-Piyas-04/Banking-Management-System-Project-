@@ -8,11 +8,6 @@ public class FundTransfer extends JFrame implements ActionListener {
 
 
 
-
-
-
-
-
         String pin;
         TextField textFieldTransferAmount;
         TextField textFieldAccountNumber;
