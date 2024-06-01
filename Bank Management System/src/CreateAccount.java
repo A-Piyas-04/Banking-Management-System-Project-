@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Random;
 
 public class CreateAccount extends JFrame implements ActionListener {
@@ -91,6 +90,7 @@ public class CreateAccount extends JFrame implements ActionListener {
         genderOptions.add(optionMale);
         genderOptions.add(optionFemale);
 
+
         JLabel labelEmail = new JLabel("Email address :");
         labelEmail.setFont(new Font("Raleway", Font.BOLD, 20));
         labelEmail.setBounds(100,390,200,30);
@@ -172,45 +172,61 @@ public class CreateAccount extends JFrame implements ActionListener {
         setVisible(true);
 
     }
+    //====================================================================================================
 
     @Override
         public void actionPerformed(ActionEvent A) {
 
-        try{
-            if(A.getSource()== next){
-                new CreateAccountSecondPage(first);
-                dispose();
-            }
-        }catch(Exception E){
-            E.printStackTrace();
-        }
+        try {
+            if (A.getSource() == next) {
 
-        if(A.getSource()== next) {
-            if (textName.getText().isEmpty() || textFname.getText().isEmpty() ){
-                JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
-            }else {
-                File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
-                BufferedWriter writer;
-                try {
-                    writer = new BufferedWriter(new FileWriter(file,true));
-                    writer.write("Name: " + textName.getText() + "\n");
-                    writer.write("Father's Name: " + textFname.getText() + "\n");
-                    writer.write("Address : " + textAdd.getText() + "\n");
-                    writer.write("City : " + textcity.getText() + "\n");
-                    writer.write("Zip Code : " + textAdd.getText() + "\n");
-                    writer.write("Address : " + textAdd.getText() + "\n");
-                } catch (Exception e) {
-                    //throw new RuntimeException(e);
-                    e.printStackTrace();
+                //===============================================================
+                if (textName.getText().isEmpty() || textFname.getText().isEmpty() ) {
+                    JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
+                } else {
+                    File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
+                    BufferedWriter writer;
+                    try {
+
+                        String pias = String.valueOf(dateChooser.getDate());
+
+
+                        writer = new BufferedWriter(new FileWriter(file,true));
+                        writer.write("Name: " + textName.getText() + "\n");
+                        writer.write("Father's Name: " + textFname.getText() + "\n");
+                        writer.write("Date of Birth :"+pias+"\n");
+
+                        if (optionMale.isSelected()){
+                            writer.write("Gender: male" + "\n");
+                        } else {
+                            writer.write("Gender: female" + "\n");
+                        }
+
+                        if (optionMarried.isSelected()){
+                            writer.write("Maritial Status : Married" + "\n");
+                        } else {
+                            writer.write("Maritial Status : Unmarried" + "\n");
+                        }
+
+                        writer.write("Address : " + textAdd.getText() + "\n");
+                        writer.write("City : " + textcity.getText() + "\n");
+                        writer.write("Zip Code : " + textZip.getText() + "\n");
+                        writer.write("Email : " + textEmail.getText() + "\n");
+
+                        writer.close();
+
+                        new CreateAccountSecondPage(first);
+                        dispose();
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+                    }
+
+
                 }
-
- /*               try {
-
-                }catch (IOException e) {
-                    throw new RuntimeException(e);
-                }*/
-
             }
+        } catch (Exception E) {
+            E.printStackTrace();
         }
     }
 
@@ -218,5 +234,3 @@ public class CreateAccount extends JFrame implements ActionListener {
                 new CreateAccount();
             }
 }
-
-

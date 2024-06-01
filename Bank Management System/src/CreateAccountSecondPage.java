@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 public class CreateAccountSecondPage extends JFrame implements ActionListener {
     JComboBox comboBox,comboBox2,comboBox3,comboBox4,comboBox5;
     JTextField textPan,textAadhar;
-    JRadioButton r1,r2, e1,e2;
+    JRadioButton r1,r2;
     JButton next,s,c;
     String formno;
     CreateAccountSecondPage(String formno){
@@ -162,43 +165,61 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        try{
-            if(e.getSource()== c){
+        try {
+            if (e.getSource() == c) {
                 //dispose();
                 System.exit(0);
             }
-        }catch (Exception E){
+        } catch (Exception E) {
             E.printStackTrace();
         }
 
         String rel = (String) comboBox.getSelectedItem();
-        String cate = (String) comboBox2.getSelectedItem();
         String inc = (String) comboBox3.getSelectedItem();
         String edu = (String) comboBox4.getSelectedItem();
         String occ = (String) comboBox5.getSelectedItem();
 
+       if(e.getSource()==s){
+        try {
+            File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
+            BufferedWriter writer;
+            try {
 
 
+                writer = new BufferedWriter(new FileWriter(file, true));
+                writer.write("Religion : " + rel + "\n");
+                writer.write("Income : " + inc + "\n");
+                writer.write("Education :" + edu + "\n");
+                writer.write("Occupation :" + occ + "\n");
 
-        try{
-            if (textPan.getText().equals("") || textAadhar.getText().equals("")){
-                JOptionPane.showMessageDialog(null,"Fill all the fields");
-            }else {/*
-                Connn c = new Connn();
-                String q = "insert into Signuptwo values('"+formno+"', '"+rel+"', '"+cate+"','"+inc+"','"+edu+"','"+occ+"','"+pan+"','"+addhar+"','"+scitizen+"','"+eAccount+"')";
-                c.statement.executeUpdate(q);
-                new Signup3(formno);
-                setVisible(false);*/
+
+                if (r1.isSelected()) {
+                    writer.write("Account Type : Savings" + "\n");
+                } else {
+                    writer.write("Account Type : Current" + "\n");
+                }
+
+
+                writer.write("===============================================================");
+                writer.write("\n===============================================================");
+
+
+                writer.close();
+
+                dispose();
+
+
+            } catch (Exception E) {
+                E.printStackTrace();
             }
 
 
-        }catch (Exception E){
+        } catch (Exception E) {
             E.printStackTrace();
         }
-
-
     }
 
+    }
     public static void main(String[] args) {
         new CreateAccountSecondPage("");
     }
