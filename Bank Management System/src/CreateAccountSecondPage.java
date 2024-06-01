@@ -214,8 +214,9 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-                writer.write("\n===============================================================");
+                writer.write("\n===============================================================\n");
                 writer.write("===============================================================\n");
+                writer.write("");
 
 
 
