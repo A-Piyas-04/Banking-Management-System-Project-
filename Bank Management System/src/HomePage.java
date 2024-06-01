@@ -95,10 +95,10 @@ public class HomePage extends JFrame implements ActionListener {
 
 
 
-        JLabel label3 = new JLabel("Account No."+this.accountNumber);
-        label3.setFont(new Font("Raleway", Font.BOLD,32));
-        label3.setBounds(240,20,600,35);
-        add(label3);
+        JLabel labelAccNum = new JLabel("Account No."+this.accountNumber);
+        labelAccNum.setFont(new Font("Raleway", Font.BOLD,32));
+        labelAccNum.setBounds(240,20,600,35);
+        add(labelAccNum);
 
 
         setLayout(null);
@@ -115,16 +115,19 @@ public class HomePage extends JFrame implements ActionListener {
 
 
         if(e.getSource()==depositButton){
-            new Deposit(pin);
+            new Deposit(accountNumber,pin);
             dispose();
         }else if(e.getSource()==withdrawButton){
-            new Withdraw(pin);
+            new Withdraw(accountNumber,pin);
             dispose();
         }else if(e.getSource()==fundTransferButton){
-            new FundTransfer(pin);
+            new FundTransfer(accountNumber,pin);
             dispose();
         }else if(e.getSource()==billPaymentButton){
-            new BillPayment(pin);
+            new BillPayment(accountNumber,pin);
+            dispose();
+        }else if(e.getSource()==viewInfoButton){
+            new ViewProfileInfo(accountNumber,pin);
             dispose();
         }else if(e.getSource()==exitButton){
             dispose();

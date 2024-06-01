@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class login extends JFrame implements ActionListener {
-    JLabel label1, label2, label3;
-    JTextField textField2;
-    JPasswordField passwordField3;
+    JLabel label1, labelCard, labelPin;
+    JTextField accNumField;
+    JPasswordField pinTextField;
 
-    JButton button1,button2,button3;
+    JButton logInButton,clearButton,createAccButton;
     login(){
         super("Bank Management System");
 
@@ -19,51 +19,51 @@ public class login extends JFrame implements ActionListener {
         label1.setBounds(150,25,650,40);
         add(label1);
 
-        label2 = new JLabel("Card No:");
-        label2.setFont(new Font("Ralway", Font.BOLD, 28));
-        label2.setForeground(Color.WHITE);
-        label2.setBounds(150,190,375,30);
-        add(label2);
+        labelCard = new JLabel("Card No:");
+        labelCard.setFont(new Font("Ralway", Font.BOLD, 28));
+        labelCard.setForeground(Color.WHITE);
+        labelCard.setBounds(150,190,375,30);
+        add(labelCard);
 
-        textField2 = new JTextField(15);
-        textField2.setBounds(325,190,230,30);
-        textField2.setFont(new Font("Arial", Font.BOLD,14));
-        add(textField2);
+        accNumField = new JTextField(15);
+        accNumField.setBounds(325,190,230,30);
+        accNumField.setFont(new Font("Arial", Font.BOLD,14));
+        add(accNumField);
 
-        label3 = new JLabel("PIN: ");
-        label3.setFont(new Font("Ralway", Font.BOLD, 28));
-        label3.setForeground(Color.WHITE);
-        label3.setBounds(150,250,375,30);
-        add(label3);
+        labelPin = new JLabel("PIN: ");
+        labelPin.setFont(new Font("Ralway", Font.BOLD, 28));
+        labelPin.setForeground(Color.WHITE);
+        labelPin.setBounds(150,250,375,30);
+        add(labelPin);
 
-        passwordField3 = new JPasswordField(15);
-        passwordField3.setBounds(325,250,230,30);
-        passwordField3.setFont(new Font("Arial", Font.BOLD, 14));
-        add(passwordField3);
+        pinTextField = new JPasswordField(15);
+        pinTextField.setBounds(325,250,230,30);
+        pinTextField.setFont(new Font("Arial", Font.BOLD, 14));
+        add(pinTextField);
 
-        button1 = new JButton("LOG IN");
-        button1.setFont(new Font("Arial", Font.BOLD, 14));
-        button1.setForeground(Color.WHITE);
-        button1.setBackground(Color.BLACK);
-        button1.setBounds(390,310,100, 30);
-        button1.addActionListener(this);
-        add(button1);
+        logInButton = new JButton("LOG IN");
+        logInButton.setFont(new Font("Arial", Font.BOLD, 14));
+        logInButton.setForeground(Color.WHITE);
+        logInButton.setBackground(Color.BLACK);
+        logInButton.setBounds(390,310,100, 30);
+        logInButton.addActionListener(this);
+        add(logInButton);
 
-        button2 = new JButton("CLEAR");
-        button2.setFont(new Font("Arial", Font.BOLD, 14));
-        button2.setForeground(Color.WHITE);
-        button2.setBackground(Color.BLACK);
-        button2.setBounds(390,348,100, 30);
-        button2.addActionListener(this);
-        add(button2);
+        clearButton = new JButton("CLEAR");
+        clearButton.setFont(new Font("Arial", Font.BOLD, 14));
+        clearButton.setForeground(Color.WHITE);
+        clearButton.setBackground(Color.BLACK);
+        clearButton.setBounds(390,348,100, 30);
+        clearButton.addActionListener(this);
+        add(clearButton);
 
-        button3 = new JButton("Create New Account");
-        button3.setFont(new Font("Railway", Font.BOLD, 14));
-        button3.setForeground(Color.orange);
-        button3.setBackground(Color.BLACK);
-        button3.setBounds(600,415,230, 30);
-        button3.addActionListener(this);
-        add(button3);
+        createAccButton = new JButton("Create New Account");
+        createAccButton.setFont(new Font("Railway", Font.BOLD, 14));
+        createAccButton.setForeground(Color.orange);
+        createAccButton.setBackground(Color.BLACK);
+        createAccButton.setBounds(600,415,230, 30);
+        createAccButton.addActionListener(this);
+        add(createAccButton);
 
         ImageIcon backbg1 = new ImageIcon(ClassLoader.getSystemResource("icons/backbg.jpg"));
         Image backbg2 = backbg1.getImage().getScaledInstance(850,480,Image.SCALE_DEFAULT);
@@ -79,16 +79,23 @@ public class login extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            if(e.getSource()== button3){
+            if(e.getSource()== createAccButton){
                 new CreateAccount();
                 dispose();
 
-            } else if (e.getSource() == button2){
-                textField2.setText("");
-                passwordField3.setText("");
+            } else if (e.getSource() == clearButton){
+                accNumField.setText("");
+                pinTextField.setText("");
+            }else if (e.getSource() == logInButton){
+
+
+                new HomePage(accNumField.getText(),pinTextField.getText());
+                dispose();
             }
         }catch (Exception E){
             E.printStackTrace();

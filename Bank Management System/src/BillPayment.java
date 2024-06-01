@@ -14,8 +14,9 @@ public class BillPayment extends JFrame implements ActionListener{
     TextField textFieldWithdraw;
 
     JButton gasBillPayButton,electricityPayButton, waterBillPayButton,backButton;
-    BillPayment(String pin) {
+    BillPayment(String accountNumber,String pin) {
         this.pin = pin;
+        this.accountNumber=accountNumber;
 
 
         JLabel label1 = new JLabel("ENETR AMOUNT YOU WANT TO PAY");
@@ -72,10 +73,8 @@ public class BillPayment extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource()==backButton){
-            new HomePage(accountNumber,pin);
-            dispose();
-        }
+
+
         try {
             String amount = textFieldWithdraw.getText();
             Date date = new Date();
@@ -90,8 +89,8 @@ public class BillPayment extends JFrame implements ActionListener{
                     new main_Class(pin);*/
                 }
             }else if (e.getSource()==backButton){
-                /*setVisible(false);
-                new main_Class(pin);*/
+                new HomePage(accountNumber,pin);
+                dispose();
             }
         }catch (Exception E){
             E.printStackTrace();
@@ -100,7 +99,7 @@ public class BillPayment extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        new BillPayment("");
+        new BillPayment("","");
     }
 
 }

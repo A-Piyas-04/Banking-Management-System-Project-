@@ -1,66 +1,17 @@
-Name: sdac
-Father's Name: j
-Date of Birth :Mon Jun 03 00:00:00 BDT 2024
-Gender: male
+Account Number : 1409962931710004-6813
+Name : Akiko
+Father's Name : Shikshima
+Date of Birth : Thu Jun 06 00:00:00 BDT 2024
+Gender : female
 Maritial Status : Unmarried
-Address : dfsvdfv
-City : dfv
-Zip Code : dfv
-Email : dsfc
-Name: erte
-Father's Name: ert
-Date of Birth :null
-Gender: female
-Maritial Status : Unmarried
-Address : 
-City : 
-Zip Code : 
-Email : ret
-Name: xcv
-Father's Name: dfsg
-Date of Birth :null
-Gender: female
-Maritial Status : Unmarried
-Address : 
-City : 
-Zip Code : 
-Email : 
-Account Number :1409963054795398-null
-Religion : Christian
+Address : janjira,Japan
+City : Janjira
+Zip Code : 5555
+Email : akiko@dmail.com
+Religion : Other
 Income : <1,50,000
 Education :Non-Graduate
-Occupation :Salaried
+Occupation :Student
 Account Type : Savings
-PIN Code :1583
-===============================================================
-
-===============================================================
-Account Number :1409962947030629-null
-Religion : Muslim
-Income : <1,50,000
-Education :Non-Graduate
-Occupation :Salaried
-Account Type : Savings
-PIN Code :3932
-===============================================================
-
-===============================================================
-Name: saddf
-Father's Name: sadf
-Date of Birth :Tue Jun 18 00:00:00 BDT 2024
-Gender: female
-Maritial Status : Unmarried
-Address : 
-City : 
-Zip Code : 
-Email : 
-Account Number :1409962943942236-null
-Religion : Muslim
-Income : <1,50,000
-Education :Non-Graduate
-Occupation :Salaried
-Account Type : Savings
-PIN Code :8065
-===============================================================
-
-===============================================================
+PIN Code : 6409
+==============================================================================================================================

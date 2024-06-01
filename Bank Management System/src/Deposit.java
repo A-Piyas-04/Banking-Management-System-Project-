@@ -5,12 +5,15 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 public class Deposit extends JFrame implements ActionListener {
+
+    String accountNumber;
     String pin;
     TextField textField;
 
     JButton b1, b2;
-    Deposit(String pin){
+    Deposit(String accountNumber,String pin){
         this.pin = pin;
+        this.accountNumber=accountNumber;
 
 
 
@@ -68,8 +71,8 @@ public class Deposit extends JFrame implements ActionListener {
                     new main_Class(pin);*/
                 }
             }else if (e.getSource()==b2){
-                /*setVisible(false);
-                new main_Class(pin);*/
+                new HomePage(accountNumber,pin);
+                dispose();
             }
         }catch (Exception E){
             E.printStackTrace();
@@ -78,6 +81,6 @@ public class Deposit extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Deposit("");
+        new Deposit("","");
     }
 }

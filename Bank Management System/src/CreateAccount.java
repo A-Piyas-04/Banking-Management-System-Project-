@@ -19,11 +19,7 @@ public class CreateAccount extends JFrame implements ActionListener {
     Random ran = new Random();
     long first4 =(ran.nextLong() % 9000L) +1000L;
 
-    public String getFirst() {
-        return first;
-    }
-
-    String first = " " + Math.abs(first4);
+    String first = String.valueOf(Math.abs(first4));
     CreateAccount(){
         super ("APPLICATION FORM");
 
@@ -179,6 +175,19 @@ public class CreateAccount extends JFrame implements ActionListener {
     }
     //====================================================================================================
 
+
+
+    long AccNum = (ran.nextLong() % 90000000L) + 1409963000000000L;
+    String accNum = "" + Math.abs(AccNum);
+    String accountNumber= Long.toString(Long.parseLong(accNum))+"-"+first;
+
+
+
+    long pinNum = (ran.nextLong() % 9000L)+ 1000L;
+    String pin = "" + Math.abs(pinNum);
+
+
+
     @Override
         public void actionPerformed(ActionEvent A) {
 
@@ -193,18 +202,19 @@ public class CreateAccount extends JFrame implements ActionListener {
                     BufferedWriter writer;
                     try {
 
-                        String pias = String.valueOf(dateChooser.getDate());
+                        String dob = String.valueOf(dateChooser.getDate());
 
 
                         writer = new BufferedWriter(new FileWriter(file,true));
-                        writer.write("Name: " + textName.getText() + "\n");
-                        writer.write("Father's Name: " + textFname.getText() + "\n");
-                        writer.write("Date of Birth :"+pias+"\n");
+                        writer.write("Account Number : "+accountNumber+"\n");
+                        writer.write("Name : " + textName.getText() + "\n");
+                        writer.write("Father's Name : " + textFname.getText() + "\n");
+                        writer.write("Date of Birth : "+dob+"\n");
 
                         if (optionMale.isSelected()){
-                            writer.write("Gender: male" + "\n");
+                            writer.write("Gender : male" + "\n");
                         } else {
-                            writer.write("Gender: female" + "\n");
+                            writer.write("Gender : female" + "\n");
                         }
 
                         if (optionMarried.isSelected()){
@@ -220,7 +230,7 @@ public class CreateAccount extends JFrame implements ActionListener {
 
                         writer.close();
 
-                        new CreateAccountSecondPage(first);
+                        new CreateAccountSecondPage(first,accountNumber,pin);
                         dispose();
                     } catch (Exception e) {
 

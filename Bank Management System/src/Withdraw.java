@@ -7,13 +7,14 @@ import java.util.Date;
 public class Withdraw extends JFrame implements ActionListener {
 
 
-
+    String accountNumber;
     String pin;
     TextField textFieldWithdraw;
 
     JButton withdrawButton, backButton;
-    Withdraw(String pin) {
+    Withdraw(String accountNumber,String pin) {
         this.pin = pin;
+        this.accountNumber=accountNumber;
 
 
         JLabel label1 = new JLabel("ENETR AMOUNT YOU WANT TO WITHDRAW");
@@ -66,8 +67,8 @@ public class Withdraw extends JFrame implements ActionListener {
                     new main_Class(pin);*/
                 }
             }else if (e.getSource()==backButton){
-                /*setVisible(false);
-                new main_Class(pin);*/
+                new HomePage(accountNumber,pin);
+                dispose();
             }
         }catch (Exception E){   
             E.printStackTrace();
@@ -76,7 +77,7 @@ public class Withdraw extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Withdraw("");
+        new Withdraw("","");
     }
 
     }

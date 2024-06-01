@@ -8,15 +8,16 @@ import java.io.FileWriter;
 import java.util.Random;
 
 public class CreateAccountSecondPage extends JFrame implements ActionListener {
-    JComboBox comboBox,comboBox2,comboBox3,comboBox4,comboBox5;
-    JTextField textPan,textAadhar;
+    JComboBox comboBox,comboBox3,comboBox4,comboBox5;
     JRadioButton r1,r2;
     JButton next,s,c;
-    String formno;
-    CreateAccountSecondPage(String formno){
+    String formno,accountNumber,pin;
+    CreateAccountSecondPage(String formno,String accountNumber,String pin){
         super("APPLICATION FORM");
 
 
+        this.accountNumber=accountNumber;
+        this.pin=pin;
         this.formno = formno;
         
         JLabel labelReligion = new JLabel("Religion :");
@@ -81,7 +82,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         add(labelformText);
 
 
-        this.formno = formno;
 
         JLabel labelAccDetail = new JLabel("Account Details");
         labelAccDetail.setFont(new Font("Raleway",Font.BOLD,22));
@@ -169,22 +169,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-    Random ran = new Random();
-    long AccNum = (ran.nextLong() % 90000000L) + 1409963000000000L;
-    String accNum = "" + Math.abs(AccNum);
-    String accountNumber= Long.toString(Long.parseLong(accNum))+"-"+formno;
-
-
-
-    long pinNum = (ran.nextLong() % 9000L)+ 1000L;
-    String pin = "" + Math.abs(pinNum);
-
-
-
-    public static void main(String[] args) {
-        new CreateAccountSecondPage("");
-    }
-
 
 
     @Override
@@ -211,7 +195,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
             try {
 
                 writer = new BufferedWriter(new FileWriter(file, true));
-                writer.write("Account Number :"+accountNumber+"\n");
                 writer.write("Religion : " + rel + "\n");
                 writer.write("Income : " + inc + "\n");
                 writer.write("Education :" + edu + "\n");
@@ -227,15 +210,12 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-                writer.write("PIN Code :"+pin);
+                writer.write("PIN Code : "+pin);
 
 
 
-                writer.write("\n===============================================================\n");
-                writer.write("\n===============================================================\n");
-
-
-
+                writer.write("\n===============================================================");
+                writer.write("===============================================================\n");
 
 
 
@@ -243,9 +223,7 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Account Number : "+accountNumber+"\nPIN Code : "+pin);
                 dispose();
 
-                //CreateAccountSecondPage CA2;
                 new HomePage(accountNumber,pin);
-
 
 
             } catch (Exception E) {
@@ -258,6 +236,10 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         }
     }
 
+    }
+
+    public static void main(String[] args) {
+        new CreateAccountSecondPage("","","");
     }
 
 }
