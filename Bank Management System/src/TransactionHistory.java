@@ -42,13 +42,6 @@ public class TransactionHistory extends JFrame {
         setLocation(220, 40);
         setVisible(true);
 
-        addKeyListener(new KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    backButton.doClick();
-                }
-            }
-        });
 
         backButton = new JButton("backButton");
         backButton.setBackground(Color.BLUE);

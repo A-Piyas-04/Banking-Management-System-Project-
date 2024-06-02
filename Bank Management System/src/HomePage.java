@@ -142,7 +142,12 @@ public class HomePage extends JFrame implements ActionListener {
         }else if(e.getSource()==logOutButton){
             new login();
             dispose();
-        }else if(e.getSource()==logOutButton){
+        }else if(e.getSource()==balanceButton){
+            Balance balance = new Balance();
+            String currentBalance=balance.CheckBalance(accountNumber,pin);
+            JOptionPane.showMessageDialog(null,"Your Current Balance : "+currentBalance);
+
+        }else if(e.getSource()==exitButton){
             dispose();
         }
     }

@@ -1,35 +1,38 @@
-Account Number : 1409962931710004-6813
-Name : Akiko
-Father's Name : Shikshima
-Date of Birth : Thu Jun 06 00:00:00 BDT 2024
+Account Number : 1409963057621381-3399
+Name : szdzcx
+Father's Name : sd
+Date of Birth : Wed Jun 19 00:00:00 BDT 2024
 Gender : female
-Maritial Status : Unmarried
-Address : janjira,Japan
-City : Janjira
-Zip Code : 5555
-Email : akiko@dmail.com
-Religion : Other
+Maritial Status : Married
+Address : jkn
+City : kjjn
+Zip Code : ljnkl
+Email : dsf
+Religion : Muslim
 Income : <1,50,000
 Education :Non-Graduate
-Occupation :Student
-Account Type : Savings
-PIN Code : 6409
-==============================================================================================================================
-Account Number : 1409962917713221-3117
-Name : Belal
-Father's Name : Jalal
-Date of Birth : Mon Jun 03 00:00:00 BDT 2024
-Gender : male
-Maritial Status : Unmarried
-Address : DhonyaGhata,Pazipur
-City : Pazipur
-Zip Code : 6969
-Email : belala@gumail.com
-Religion : Other
-Income : Above 10,00,000
-Education :Non-Graduate
-Occupation :Self-Employed
+Occupation :Salaried
 Account Type : Current
-PIN Code : 1713
-===============================================================
-===============================================================
+PIN Code : 5384
+Balance : 2450.0
+====================================================================
+
+Account Number : 1409962945282156-1274
+Name : Irfan
+Father's Name : ijnj
+Date of Birth : Thu Jun 06 00:00:00 BDT 2024
+Gender : male
+Maritial Status : Married
+Address : kl
+City : klj
+Zip Code : 9999
+Email : dskf
+Religion : Muslim
+Income : Uptp 10,00,000
+Education :Non-Graduate
+Occupation :Business
+Account Type : Current
+PIN Code : 2291
+Balance : 1900.0
+====================================================================
+

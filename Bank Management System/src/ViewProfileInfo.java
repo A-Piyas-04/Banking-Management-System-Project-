@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -52,13 +50,7 @@ public class ViewProfileInfo extends JFrame {
             e.printStackTrace();
         }
 
-        addKeyListener(new KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    backButton.doClick();
-                }
-            }
-        });
+
 
         backButton = new JButton("backButton");
         backButton.setFont(new Font("DialogInput", Font.BOLD, 19));
@@ -68,8 +60,8 @@ public class ViewProfileInfo extends JFrame {
         backButton.addActionListener(this::performAction);
         add(backButton);
 
-        setSize(1080, 720);
-        setLocation(220, 40);
+        setSize(1080, 750);
+        setLocation(220, 20);
         setVisible(true);
     }
 
@@ -81,7 +73,7 @@ public class ViewProfileInfo extends JFrame {
     }
 
     public static void main(String[] args) {
-        new ViewProfileInfo("1409963064786751-null","916");
+        new ViewProfileInfo("","");
     }
 
 }

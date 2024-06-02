@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Random;
 
 public class CreateAccountSecondPage extends JFrame implements ActionListener {
     JComboBox comboBox,comboBox3,comboBox4,comboBox5;
     JRadioButton r1,r2;
-    JButton next,s,c;
+    JButton s,c;
+    JTextField textInitialDeposit;
     String formno,accountNumber,pin;
     CreateAccountSecondPage(String formno,String accountNumber,String pin){
         super("APPLICATION FORM");
@@ -19,7 +19,7 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         this.accountNumber=accountNumber;
         this.pin=pin;
         this.formno = formno;
-        
+
         JLabel labelReligion = new JLabel("Religion :");
         labelReligion.setFont(new Font("Raleway", Font.BOLD,18));
         labelReligion.setBounds(100,120,100,30);
@@ -117,7 +117,7 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
         JLabel labelCardNumText = new JLabel("XXXX-XXXX-XXXX-"+formno);
         labelCardNumText.setFont(new Font("Raleway",Font.BOLD,18));
-        labelCardNumText.setBounds(330,440,250,30);
+        labelCardNumText.setBounds(350,440,250,30);
         add(labelCardNumText);
 
 
@@ -128,8 +128,30 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
         JLabel labelPINtext = new JLabel("XXXX");
         labelPINtext.setFont(new Font("Raleway",Font.BOLD,18));
-        labelPINtext.setBounds(330,490,200,30);
+        labelPINtext.setBounds(350,490,200,30);
         add(labelPINtext);
+
+
+        JLabel labelInitialDeposit = new JLabel("Initial Deposit : ");
+        labelInitialDeposit.setFont(new Font("Raleway", Font.BOLD,18));
+        labelInitialDeposit.setBounds(100,540,150,30);
+        add(labelInitialDeposit);
+
+
+        JLabel minDep = new JLabel("( Minimum BDT.500/- ) ");
+        minDep.setFont(new Font("Raleway", Font.BOLD,12));
+        minDep.setBounds(100,560,150,30);
+        add(minDep);
+
+
+        textInitialDeposit = new JTextField();
+        textInitialDeposit.setFont(new Font("Raleway",Font.BOLD, 14));
+        textInitialDeposit.setBounds(350,540,200,30);
+        add(textInitialDeposit);
+
+
+
+
 
 
         JCheckBox c7 = new JCheckBox("I here by decleares that the above entered details correct to the best of my knlowledge.",true);
@@ -170,7 +192,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -187,6 +208,7 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         String inc = (String) comboBox3.getSelectedItem();
         String edu = (String) comboBox4.getSelectedItem();
         String occ = (String) comboBox5.getSelectedItem();
+
 
        if(e.getSource()==s){
         try {
@@ -210,13 +232,15 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-                writer.write("PIN Code : "+pin);
+                writer.write("PIN Code : " + pin + "\n");
+                writer.write("Balance : "+textInitialDeposit.getText());
 
 
 
-                writer.write("\n===============================================================\n");
-                writer.write("===============================================================\n");
-                writer.write("");
+                writer.newLine();
+                writer.write("====================================================================");
+                writer.newLine();
+                writer.write("\n");
 
 
 
