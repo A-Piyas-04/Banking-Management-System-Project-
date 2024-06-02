@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Withdraw extends JFrame implements ActionListener {
 
-
+    Balance balance=new Balance();
     String accountNumber;
     String pin;
     TextField textFieldWithdraw;
@@ -17,7 +20,7 @@ public class Withdraw extends JFrame implements ActionListener {
         this.accountNumber=accountNumber;
 
 
-        JLabel label1 = new JLabel("ENETR AMOUNT YOU WANT TO WITHDRAW");
+        JLabel label1 = new JLabel("ENTER AMOUNT YOU WANT TO WITHDRAW");
         label1.setForeground(Color.BLACK);
         label1.setFont(new Font("System", Font.BOLD, 16));
         label1.setBounds(260, 180, 400, 35);
@@ -27,7 +30,7 @@ public class Withdraw extends JFrame implements ActionListener {
         textFieldWithdraw.setBackground(new Color(65, 125, 128));
         textFieldWithdraw.setForeground(Color.WHITE);
         textFieldWithdraw.setBounds(260, 230, 320, 25);
-        textFieldWithdraw.setFont(new Font("Raleway", Font.BOLD, 22));
+        textFieldWithdraw.setFont(new Font("Railway", Font.BOLD, 22));
         add(textFieldWithdraw);
 
         withdrawButton = new JButton("WITHDRAW");
@@ -55,22 +58,48 @@ public class Withdraw extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             String amount = textFieldWithdraw.getText();
-            Date date = new Date();
+            //Date date = new Date();
             if (e.getSource()==withdrawButton){
                 if (textFieldWithdraw.getText().equals("")){
                     JOptionPane.showMessageDialog(null,"Please enter the Amount you want to WITHDRAW");
-                }else {/*
-                    Connn c = new Connn();
-                    c.statement.executeUpdate("insert into bank values('"+pin+"', '"+date+"','Withdraw', '"+amount+"')");
-                    JOptionPane.showMessageDialog(null,"Rs. "+amount+" Withdrawn Successfully");
-                    setVisible(false);
-                    new main_Class(pin);*/
+                }else {
+                    String currentBalance = balance.CheckBalance(accountNumber, pin);
+                    if (currentBalance == null) {
+                        JOptionPane.showMessageDialog(null, "Could not retrieve current balance");
+                    } else {
+                        try {
+                            Double currentBalanceInt = Double.parseDouble(currentBalance);
+                            Double amountInt = Double.parseDouble(amount);
+                            String newBalance = String.valueOf(currentBalanceInt - amountInt);
+                            balance.updateBalance(accountNumber, pin, newBalance);
+
+                            String accountNumber = this.accountNumber;
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + accountNumber + ".txt", true));
+
+                            LocalDateTime now = LocalDateTime.now();
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String formatDateTime = now.format(formatter);
+
+                            writer.write("Withdraw: \tTk " + amount + "\t" + "("+formatDateTime+")" + "\t" +"Current Balance:"+ newBalance + "\t" );
+                            writer.newLine();
+                            writer.close();
+
+                            JOptionPane.showMessageDialog(null, "Amount Withdrawn successfully");
+                            this.setVisible(false);
+                            new HomePage(accountNumber, pin).setVisible(true);
+                        } catch (NumberFormatException E) {
+                            JOptionPane.showMessageDialog(null, "Invalid number format");
+                        } catch (Exception E) {
+                            E.printStackTrace();
+                        }
+                    }
                 }
             }else if (e.getSource()==backButton){
                 new HomePage(accountNumber,pin);
                 dispose();
             }
-        }catch (Exception E){   
+        }catch (Exception E){
             E.printStackTrace();
         }
 
@@ -80,4 +109,4 @@ public class Withdraw extends JFrame implements ActionListener {
         new Withdraw("","");
     }
 
-    }
+}
