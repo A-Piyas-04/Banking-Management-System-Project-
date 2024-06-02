@@ -14,7 +14,7 @@ Education :Non-Graduate
 Occupation :Salaried
 Account Type : Current
 PIN Code : 5384
-Balance : 2100.0
+Balance : 2000.0
 ====================================================================
 
 Account Number : 1409962945282156-1274
@@ -33,6 +33,36 @@ Education :Non-Graduate
 Occupation :Business
 Account Type : Current
 PIN Code : 2291
-Balance : 1900.0
+Balance : 2300.0
 ====================================================================
 
+Account Number : 1409962987677562-4391
+Name : Akiko
+Father's Name : Shikshima
+Date of Birth : Thu Jun 06 00:00:00 BDT 2024
+Gender : female
+Maritial Status : Married
+Address : janjira,Japan
+City : Janjira
+Zip Code : 4545
+Email : AKK.1945@gmail.com
+Religion : Other
+Income : <1,50,000
+Education :Non-Graduate
+Occupation :Student
+Account Type : Savings
+PIN Code : 2291
+Balance: 4000.0
+
+====================================================================
+
+Account Number : 1409963071825731-4569
+Name : wee
+Father's Name : ee
+Date of Birth : null
+Gender : female
+Maritial Status : Unmarried
+Address : 
+City : 
+Zip Code : 
+Email : 

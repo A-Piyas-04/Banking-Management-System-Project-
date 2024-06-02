@@ -1,1 +1,16 @@
 Deposit: 	Tk 700	(2024-06-02 17:01:22)	Current Balance:1900.0	
+Deposit: 	Tk 500	(2024-06-02 17:19:40)	Current Balance:2400.0	
+Deposit: 	Tk 200	(2024-06-02 19:22:53)	Current Balance:2600.0	
+Deposit: 	Tk 100	(2024-06-02 19:39:04)	Current Balance:2700.0	
+Withdraw: 	Tk 300	(2024-06-02 19:39:12)	Current Balance:2400.0	
+Withdraw: 	Tk 700	(2024-06-02 19:39:51)	Current Balance:1700.0	
+Withdraw: 	Tk 1800	(2024-06-02 19:40:07)	Current Balance:-100.0	
+Deposit: 	Tk 4000	(2024-06-02 19:40:24)	Current Balance:3900.0	
+Withdraw: 	Tk 1800	(2024-06-02 19:48:10)	Current Balance:2100.0	
+Loan: 	Tk 2000	(2024-06-02 19:48:24)	Current Balance:4100.0	
+Water Bill: 	Tk 400	(2024-06-02 20:03:21)	Current Balance:3700.0	
+Received: 	Tk250	2024-06-02 21:19:44	3950.0	Received from 1409963057621381-3399
+Withdraw: 	Tk 950	(2024-06-02 23:29:24)	Current Balance:3000.0	
+Water Bill: 	Tk 500	(2024-06-02 23:29:45)	Current Balance:2500.0	
+Loan: 	Tk 300	(2024-06-02 23:30:05)	Current Balance:2800.0	
+Transferred: 	Tk500	2024-06-02 23:32:09	2300.0	Transferred to 1409962987677562-4391

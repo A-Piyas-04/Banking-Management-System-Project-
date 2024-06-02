@@ -8,10 +8,12 @@ import java.io.FileWriter;
 
 public class CreateAccountSecondPage extends JFrame implements ActionListener {
     JComboBox comboBox,comboBox3,comboBox4,comboBox5;
-    JRadioButton r1,r2;
-    JButton s,c;
+    JRadioButton savingAccOption,currentAccOption;
+    JButton submitButton,cancelButton;
     JTextField textInitialDeposit;
     String formno,accountNumber,pin;
+
+    ButtonGroup accType;
     CreateAccountSecondPage(String formno,String accountNumber,String pin){
         super("APPLICATION FORM");
 
@@ -93,21 +95,21 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         labelAccType.setBounds(100,340,200,30);
         add(labelAccType);
 
-        r1 = new JRadioButton("Saving Account");
-        r1.setFont(new Font("Raleway",Font.BOLD,16));
-        r1.setBackground(new Color(215,252,252));
-        r1.setBounds(100,370,150,30);
-        add(r1);
+        savingAccOption = new JRadioButton("Saving Account");
+        savingAccOption.setFont(new Font("Raleway",Font.BOLD,16));
+        savingAccOption.setBackground(new Color(215,252,252));
+        savingAccOption.setBounds(100,370,150,30);
+        add(savingAccOption);
 
-        r2 = new JRadioButton("Current Account");
-        r2.setFont(new Font("Raleway",Font.BOLD,16));
-        r2.setBackground(new Color(215,252,252));
-        r2.setBounds(350,370,300,30);
-        add(r2);
+        currentAccOption = new JRadioButton("Current Account");
+        currentAccOption.setFont(new Font("Raleway",Font.BOLD,16));
+        currentAccOption.setBackground(new Color(215,252,252));
+        currentAccOption.setBounds(350,370,300,30);
+        add(currentAccOption);
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(r1);
-        buttonGroup.add(r2);
+        accType = new ButtonGroup();
+        accType.add(savingAccOption);
+        accType.add(currentAccOption);
 
 
         JLabel labelCardNum = new JLabel("Card Number:");
@@ -162,21 +164,21 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
 
 
 
-        s = new JButton("Submit");
-        s.setFont(new Font("Raleway", Font.BOLD,14));
-        s.setBackground(Color.BLACK);
-        s.setForeground(Color.WHITE);
-        s.setBounds(215,670,100,30);
-        s.addActionListener(this);
-        add(s);
+        submitButton = new JButton("Submit");
+        submitButton.setFont(new Font("Raleway", Font.BOLD,14));
+        submitButton.setBackground(Color.BLACK);
+        submitButton.setForeground(Color.WHITE);
+        submitButton.setBounds(215,670,100,30);
+        submitButton.addActionListener(this);
+        add(submitButton);
 
-        c = new JButton("Cancel");
-        c.setFont(new Font("Raleway", Font.BOLD,14));
-        c.setBackground(Color.BLACK);
-        c.setForeground(Color.WHITE);
-        c.setBounds(570,670,100,30);
-        c.addActionListener(this);
-        add(c);
+        cancelButton = new JButton("Cancel");
+        cancelButton.setFont(new Font("Raleway", Font.BOLD,14));
+        cancelButton.setBackground(Color.BLACK);
+        cancelButton.setForeground(Color.WHITE);
+        cancelButton.setBounds(570,670,100,30);
+        cancelButton.addActionListener(this);
+        add(cancelButton);
 
 
         setLayout(null);
@@ -196,7 +198,7 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         try {
-            if (e.getSource() == c) {
+            if (e.getSource() == cancelButton) {
                 //dispose();
                 System.exit(0);
             }
@@ -210,59 +212,62 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
         String occ = (String) comboBox5.getSelectedItem();
 
 
-       if(e.getSource()==s){
-        try {
-            File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
-            BufferedWriter writer;
-            try {
+        if (e.getSource() == submitButton) {
+           if(accType.getSelection()==null || textInitialDeposit.getText().isEmpty()){
+               JOptionPane.showMessageDialog(this, "All fields must be filled");
 
-                writer = new BufferedWriter(new FileWriter(file, true));
-                writer.write("Religion : " + rel + "\n");
-                writer.write("Income : " + inc + "\n");
-                writer.write("Education :" + edu + "\n");
-                writer.write("Occupation :" + occ + "\n");
+           }else if(Double.parseDouble(textInitialDeposit.getText())<500){
+               JOptionPane.showMessageDialog(this,"Initial Deposite Must be Minimum of 500/-");
+           }
+           else{
+                try {
+                    File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");
+                    BufferedWriter writer;
+                    try {
+
+                        writer = new BufferedWriter(new FileWriter(file, true));
+                        writer.write("Religion : " + rel + "\n");
+                        writer.write("Income : " + inc + "\n");
+                        writer.write("Education : " + edu + "\n");
+                        writer.write("Occupation : " + occ + "\n");
 
 
-                if (r1.isSelected()) {
-                    writer.write("Account Type : Savings" + "\n");
-                } else {
-                    writer.write("Account Type : Current" + "\n");
+                        if (savingAccOption.isSelected()) {
+                            writer.write("Account Type : Savings" + "\n");
+                        } else {
+                            writer.write("Account Type : Current" + "\n");
+                        }
+
+
+                        writer.write("PIN Code : " + pin + "\n");
+                        writer.write("Balance : " + textInitialDeposit.getText() + "\n");
+
+
+                        writer.newLine();
+                        writer.write("====================================================================");
+                        writer.newLine();
+                        writer.write("\n");
+
+
+                        writer.close();
+                        JOptionPane.showMessageDialog(null, "Account Number : " + accountNumber + "\nPIN Code : " + pin);
+                        dispose();
+
+                        new HomePage(accountNumber, pin);
+
+
+                    } catch (Exception E) {
+                        E.printStackTrace();
+                    }
+
+
+                } catch (Exception E) {
+                    E.printStackTrace();
                 }
-
-
-
-
-                writer.write("PIN Code : " + pin + "\n");
-                writer.write("Balance : "+textInitialDeposit.getText());
-
-
-
-                writer.newLine();
-                writer.write("====================================================================");
-                writer.newLine();
-                writer.write("\n");
-
-
-
-                writer.close();
-                JOptionPane.showMessageDialog(null,"Account Number : "+accountNumber+"\nPIN Code : "+pin);
-                dispose();
-
-                new HomePage(accountNumber,pin);
-
-
-            } catch (Exception E) {
-                E.printStackTrace();
             }
 
-
-        } catch (Exception E) {
-            E.printStackTrace();
         }
     }
-
-    }
-
     public static void main(String[] args) {
         new CreateAccountSecondPage("","","");
     }

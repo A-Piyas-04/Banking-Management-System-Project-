@@ -2,11 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class FundTransfer extends JFrame implements ActionListener {
 
 
+        Balance balance=new Balance();
         String accountNumber;
         String pin;
         TextField textFieldTransferAmount;
@@ -18,7 +22,7 @@ public class FundTransfer extends JFrame implements ActionListener {
             this.accountNumber=accountNumber;
 
 
-            JLabel label1 = new JLabel("ENETR AMOUNT YOU WANT TO TRANSFER");
+            JLabel label1 = new JLabel("ENTER AMOUNT YOU WANT TO TRANSFER");
             label1.setForeground(Color.BLACK);
             label1.setFont(new Font("System", Font.BOLD, 16));
             label1.setBounds(260, 180, 400, 35);
@@ -33,7 +37,7 @@ public class FundTransfer extends JFrame implements ActionListener {
 
 
 
-            JLabel label2 = new JLabel("TO:  (account that will recieve the fund)");
+            JLabel label2 = new JLabel("TO:  (account that will receive the fund)");
             label2.setForeground(Color.BLACK);
             label2.setFont(new Font("System", Font.BOLD, 16));
             label2.setBounds(260, 270, 400, 35);
@@ -63,6 +67,9 @@ public class FundTransfer extends JFrame implements ActionListener {
             add(backButton);
 
 
+
+
+
             setLayout(null);
             setSize(900, 750);
             setLocation(450, 80);
@@ -71,18 +78,61 @@ public class FundTransfer extends JFrame implements ActionListener {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
+            String transferAccountNumber=textFieldAccountNumber.getText();
             try {
                 String amount = textFieldTransferAmount.getText();
-                Date date = new Date();
+                
                 if (e.getSource()==transferButton){
-                    if (textFieldTransferAmount.getText().equals("")){
-                        JOptionPane.showMessageDialog(null,"Please enter the Amount you want to WITHDRAW");
-                    }else {/*
-                    Connn c = new Connn();
-                    c.statement.executeUpdate("insert into bank values('"+pin+"', '"+date+"','Withdraw', '"+amount+"')");
-                    JOptionPane.showMessageDialog(null,"Rs. "+amount+" Withdrawn Successfully");
-                    setVisible(false);
-                    new main_Class(pin);*/
+                    if (textFieldTransferAmount.getText().equals("") || textFieldAccountNumber.getText().equals("")){
+                        JOptionPane.showMessageDialog(null,"Please enter the Amount and Account No. to transfer Fund");
+                    }else {               
+                        String currentBalance = balance.CheckBalance(accountNumber, pin);
+                        if (currentBalance == null) {
+                            JOptionPane.showMessageDialog(null, "Could not retrieve current balance");
+                        } else {
+                            try {
+                                Double currentBalanceInt = Double.parseDouble(currentBalance);
+                                Double amountInt = Double.parseDouble(amount);
+                                if (currentBalanceInt < amountInt) {
+                                    JOptionPane.showMessageDialog(null, "Insufficient balance");
+                                } else {
+                                    String newBalance = String.valueOf(currentBalanceInt - amountInt);
+                                    balance.updateBalance(accountNumber, pin, newBalance);
+
+                                    LocalDateTime now = LocalDateTime.now();
+                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                                    String formatDateTime = now.format(formatter);
+
+                                    String accountNumber = this.accountNumber;
+                                    BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + accountNumber + ".txt", true));
+                                    writer.write("Transferred: \tTk" + amount + "\t" + formatDateTime + "\t" + newBalance + "\tTransferred to " + transferAccountNumber);
+                                    writer.newLine();
+                                    writer.close();
+
+                                    String transferAccountBalance = balance.getTransferCurrentBalance(transferAccountNumber);
+                                    if (transferAccountBalance == null) {
+                                        JOptionPane.showMessageDialog(null, "Could not retrieve transfer account balance");
+                                    } else {
+                                        Double transferAccountBalanceInt = Double.parseDouble(transferAccountBalance);
+                                        String newTransferAccountBalance = String.valueOf(transferAccountBalanceInt + amountInt);
+                                        balance.transferBalance(transferAccountNumber, newTransferAccountBalance);
+
+                                        BufferedWriter transferWriter = new BufferedWriter(new FileWriter("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + transferAccountNumber + ".txt", true));
+                                        transferWriter.write("Received: \tTk" + amount + "\t" + formatDateTime + "\t" + newTransferAccountBalance + "\tReceived from " + accountNumber);
+                                        transferWriter.newLine();
+                                        transferWriter.close();
+
+                                        JOptionPane.showMessageDialog(null, "Amount transferred successfully");
+                                        this.setVisible(false);
+                                        new HomePage(accountNumber,pin).setVisible(true);
+                                    }
+                                }
+                            } catch (NumberFormatException ex) {
+                                JOptionPane.showMessageDialog(null, "Invalid amount");
+                            } catch (Exception ex){
+                                ex.printStackTrace();
+                            }
+                        }
                     }
                 }else if (e.getSource()==backButton){
                     new HomePage(accountNumber,pin);

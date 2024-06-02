@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.util.Random;
 
 public class CreateAccount extends JFrame implements ActionListener {
+
+    ButtonGroup genderOptions,marriageOptions;
     JRadioButton optionMale,optionFemale,optionMarried,optionUnMarried;
     JButton next;
 
@@ -87,7 +89,7 @@ public class CreateAccount extends JFrame implements ActionListener {
         add(optionFemale);
         
 
-        ButtonGroup genderOptions = new ButtonGroup();
+        genderOptions = new ButtonGroup();
         genderOptions.add(optionMale);
         genderOptions.add(optionFemale);
 
@@ -122,7 +124,7 @@ public class CreateAccount extends JFrame implements ActionListener {
 
 
 
-        ButtonGroup marriageOptions = new ButtonGroup();
+        marriageOptions = new ButtonGroup();
         marriageOptions.add(optionMarried);
         marriageOptions.add(optionUnMarried);
 
@@ -195,7 +197,9 @@ public class CreateAccount extends JFrame implements ActionListener {
             if (A.getSource() == next) {
 
                 //===============================================================
-                if (textName.getText().isEmpty() || textFname.getText().isEmpty() ) {
+                if (textName.getText().isEmpty() || textFname.getText().isEmpty() || genderOptions.getSelection()==null
+                || textEmail.getText().isEmpty() || textAdd.getText().isEmpty() || textcity.getText().isEmpty()
+                || textZip.getText().isEmpty() || marriageOptions.getSelection()==null) {
                     JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
                 } else {
                     File file = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt");

@@ -7,7 +7,7 @@ public class HomePage extends JFrame implements ActionListener {
 
 
     JButton depositButton,withdrawButton,fundTransferButton,loanButton,billPaymentButton,viewInfoButton,
-    exitButton,transactionHistoryButton,balanceButton,logOutButton;
+    transactionHistoryButton,balanceButton,deleteButton,logOutButton;
     String accountNumber;
     String pin;
     HomePage(String accountNumber,String pin){
@@ -83,22 +83,24 @@ public class HomePage extends JFrame implements ActionListener {
         balanceButton.addActionListener(this);
         add(balanceButton);
 
-        exitButton = new JButton("Exit");
-        exitButton.setFont(new Font("DialogInput",Font.BOLD, 20));
-        exitButton.setBackground(Color.BLACK);
-        exitButton.setForeground(Color.RED);
-        exitButton.setBounds(0,655,180,55);
-        exitButton.addActionListener(this);
-        add(exitButton);
 
 
         logOutButton = new JButton("Logout");
         logOutButton.setFont(new Font("DialogInput",Font.BOLD, 20));
         logOutButton.setBackground(Color.BLACK);
         logOutButton.setForeground(Color.RED);
-        logOutButton.setBounds(700,655,180,55);
+        logOutButton.setBounds(0,655,180,55);
         logOutButton.addActionListener(this);
         add(logOutButton);
+
+
+        deleteButton = new JButton("Delete Account");
+        deleteButton.setFont(new Font("DialogInput",Font.BOLD, 20));
+        deleteButton.setBackground(Color.BLACK);
+        deleteButton.setForeground(Color.RED);
+        deleteButton.setBounds(680,655,210,55);
+        deleteButton.addActionListener(this);
+        add(deleteButton);
 
 
 
@@ -139,16 +141,25 @@ public class HomePage extends JFrame implements ActionListener {
         }else if(e.getSource()==viewInfoButton){
             new ViewProfileInfo(accountNumber,pin);
             dispose();
+        }else if(e.getSource()==transactionHistoryButton){
+            new TransactionHistory(accountNumber,pin);
+            dispose();
         }else if(e.getSource()==logOutButton){
             new login();
+            dispose();
+        }else if(e.getSource()==loanButton){
+            new Loan(accountNumber,pin);
             dispose();
         }else if(e.getSource()==balanceButton){
             Balance balance = new Balance();
             String currentBalance=balance.CheckBalance(accountNumber,pin);
             JOptionPane.showMessageDialog(null,"Your Current Balance : "+currentBalance);
 
-        }else if(e.getSource()==exitButton){
+        }else if(e.getSource()==deleteButton){
+            new Deletion(accountNumber);
+            JOptionPane.showMessageDialog(null,"Account Deleted Successfully");
             dispose();
+            new login();
         }
     }
     public static void main(String[] args) {

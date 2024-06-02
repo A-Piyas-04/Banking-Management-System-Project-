@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -25,7 +23,7 @@ public class TransactionHistory extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/Transaction_History/" + accountNumber + ".txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + accountNumber + ".txt"));
             String line = reader.readLine();
             while (line != null){
                 transaction.append(line + "\n");
@@ -36,16 +34,16 @@ public class TransactionHistory extends JFrame {
             e.printStackTrace();
         }
 
-        getContentPane().setBackground(new java.awt.Color(81, 117, 101));
+        getContentPane().setBackground(new java.awt.Color(132, 78, 157, 132));
 
         setSize(1080, 720);
         setLocation(220, 40);
         setVisible(true);
 
 
-        backButton = new JButton("backButton");
-        backButton.setBackground(Color.BLUE);
-        backButton.setForeground(Color.WHITE);
+        backButton = new JButton("Back");
+        backButton.setBackground(Color.BLACK);
+        backButton.setForeground(Color.RED);
         backButton.setFont(new Font("Oswarld", Font.BOLD, 20));
         backButton.setBounds(600, 450, 250, 50);
         backButton.addActionListener(this::performAction);

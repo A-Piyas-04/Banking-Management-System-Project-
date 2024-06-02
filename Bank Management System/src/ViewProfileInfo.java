@@ -52,7 +52,7 @@ public class ViewProfileInfo extends JFrame {
 
 
 
-        backButton = new JButton("backButton");
+        backButton = new JButton("Back");
         backButton.setFont(new Font("DialogInput", Font.BOLD, 19));
         backButton.setBounds(300, 400, 150, 35);
         backButton.setBackground(Color.BLACK);
@@ -66,7 +66,7 @@ public class ViewProfileInfo extends JFrame {
     }
 
     public void performAction(java.awt.event.ActionEvent ae) {
-        if (ae.getActionCommand().equals("backButton")) {
+        if (ae.getActionCommand().equals("Back")) {
             new HomePage(accountNumber, pin).setVisible(true);
             dispose();
         }

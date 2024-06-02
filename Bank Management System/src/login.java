@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class login extends JFrame implements ActionListener {
     JLabel label1, labelCard, labelPin;
@@ -95,10 +97,44 @@ public class login extends JFrame implements ActionListener {
 
                 if(accNumField.getText().isEmpty() || pinTextField.getText().isEmpty()){
                     JOptionPane.showMessageDialog(this, "Please Enter your Card and Pin no.");
-                }else{
-                    new HomePage(accNumField.getText(),pinTextField.getText());
-                    dispose();
-                }
+                }else if ( e.getSource() == logInButton){
+                    try {
+                        BufferedReader reader = new BufferedReader(new FileReader("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Created Accounts.txt"));
+                        String line;
+                        String enteredAccountNumber = accNumField.getText();
+                        String enteredPin = new String(pinTextField.getPassword());
+                        String currentAccountNumber = null;
+                        boolean loginSuccessful = false;
+                        
+                        while ((line = reader.readLine()) != null) {
+                            String[] parts = line.split(" : ");
+                            if (parts.length >= 2) {
+                                String attribute = parts[0];
+                                String value = parts[1];
+
+                                if (attribute.equals("Account Number")) {
+                                    currentAccountNumber = value;
+                                } else if (attribute.equals("PIN Code") && value.equals(enteredPin) && currentAccountNumber.equals(enteredAccountNumber)) {
+                                    loginSuccessful = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (loginSuccessful) {
+                            String accountNumber = accNumField.getText();
+                            String pin = new String(pinTextField.getPassword());
+                            new HomePage(accountNumber, pin).setVisible(true);
+                            setVisible(false);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Invalid account number or pin");
+                        }
+
+                        reader.close();
+                    }  catch (Exception ae){
+                        ae.printStackTrace();
+                    }
+            }
             }
         }catch (Exception E){
             E.printStackTrace();
