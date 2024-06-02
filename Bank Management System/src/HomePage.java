@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 public class HomePage extends JFrame implements ActionListener {
 
 
-    JButton depositButton,withdrawButton,fundTransferButton,loanButton,billPaymentButton,viewInfoButton,exitButton,transactionHistoryButton,balanceButton;
+    JButton depositButton,withdrawButton,fundTransferButton,loanButton,billPaymentButton,viewInfoButton,
+    exitButton,transactionHistoryButton,balanceButton,logOutButton;
     String accountNumber;
     String pin;
     HomePage(String accountNumber,String pin){
@@ -82,14 +83,23 @@ public class HomePage extends JFrame implements ActionListener {
         balanceButton.addActionListener(this);
         add(balanceButton);
 
-
         exitButton = new JButton("Exit");
         exitButton.setFont(new Font("DialogInput",Font.BOLD, 20));
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.RED);
-        exitButton.setBounds(310,600,180,55);
+        exitButton.setBounds(0,655,180,55);
         exitButton.addActionListener(this);
         add(exitButton);
+
+
+        logOutButton = new JButton("Logout");
+        logOutButton.setFont(new Font("DialogInput",Font.BOLD, 20));
+        logOutButton.setBackground(Color.BLACK);
+        logOutButton.setForeground(Color.RED);
+        logOutButton.setBounds(700,655,180,55);
+        logOutButton.addActionListener(this);
+        add(logOutButton);
+
 
 
 
@@ -103,7 +113,7 @@ public class HomePage extends JFrame implements ActionListener {
 
         setLayout(null);
         setSize(900,750);
-        setLocation(450,80);
+        setLocation(450,75);
         getContentPane().setBackground(new Color(176, 170, 143));
         setVisible(true);
     }
@@ -129,7 +139,10 @@ public class HomePage extends JFrame implements ActionListener {
         }else if(e.getSource()==viewInfoButton){
             new ViewProfileInfo(accountNumber,pin);
             dispose();
-        }else if(e.getSource()==exitButton){
+        }else if(e.getSource()==logOutButton){
+            new login();
+            dispose();
+        }else if(e.getSource()==logOutButton){
             dispose();
         }
     }

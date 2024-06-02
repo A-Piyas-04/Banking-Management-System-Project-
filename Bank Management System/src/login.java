@@ -93,9 +93,12 @@ public class login extends JFrame implements ActionListener {
                 pinTextField.setText("");
             }else if (e.getSource() == logInButton){
 
-
-                new HomePage(accNumField.getText(),pinTextField.getText());
-                dispose();
+                if(accNumField.getText().isEmpty() || pinTextField.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Please Enter your Card and Pin no.");
+                }else{
+                    new HomePage(accNumField.getText(),pinTextField.getText());
+                    dispose();
+                }
             }
         }catch (Exception E){
             E.printStackTrace();

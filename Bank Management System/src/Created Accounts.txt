@@ -15,3 +15,21 @@ Occupation :Student
 Account Type : Savings
 PIN Code : 6409
 ==============================================================================================================================
+Account Number : 1409962917713221-3117
+Name : Belal
+Father's Name : Jalal
+Date of Birth : Mon Jun 03 00:00:00 BDT 2024
+Gender : male
+Maritial Status : Unmarried
+Address : DhonyaGhata,Pazipur
+City : Pazipur
+Zip Code : 6969
+Email : belala@gumail.com
+Religion : Other
+Income : Above 10,00,000
+Education :Non-Graduate
+Occupation :Self-Employed
+Account Type : Current
+PIN Code : 1713
+===============================================================
+===============================================================
