@@ -1,68 +1,61 @@
-Account Number : 1409963057621381-3399
-Name : szdzcx
-Father's Name : sd
-Date of Birth : Wed Jun 19 00:00:00 BDT 2024
-Gender : female
-Maritial Status : Married
-Address : jkn
-City : kjjn
-Zip Code : ljnkl
-Email : dsf
+
+Account Number : 1409963062327029-8887
+Name : Ahnaf Shahriar Pias
+Father's Name : Atique-Ul Islam
+Date of Birth : Mon Oct 04 00:00:00 BDT 2004
+Gender : male
+Maritial Status : Unmarried
+Address : Boalia,Rajshahi
+City : Rajshahi
+Zip Code : 2277
+Email : piyash.ik.27@gmail.com
 Religion : Muslim
 Income : <1,50,000
-Education :Non-Graduate
-Occupation :Salaried
-Account Type : Current
-PIN Code : 5384
-Balance : 2000.0
+Education : Non-Graduate
+Occupation : Student
+Account Type : Savings
+PIN Code : 908
+Balance : 4900.0
+
 ====================================================================
 
-Account Number : 1409962945282156-1274
-Name : Irfan
-Father's Name : ijnj
-Date of Birth : Thu Jun 06 00:00:00 BDT 2024
+Account Number : 1409962994535888-5518
+Name : Irfan Shafee
+Father's Name : Iftekhar 
+Date of Birth : Thu Jun 09 00:00:00 BDT 2005
 Gender : male
 Maritial Status : Married
-Address : kl
-City : klj
-Zip Code : 9999
-Email : dskf
+Address : BoardBazar,Gazipur
+City : Gazipur
+Zip Code : 6500
+Email : irfan.se@gmail.com
 Religion : Muslim
-Income : Uptp 10,00,000
-Education :Non-Graduate
-Occupation :Business
+Income : 5,00,000
+Education : Non-Graduate
+Occupation : Self-Employed
 Account Type : Current
-PIN Code : 2291
-Balance : 2300.0
+PIN Code : 1179
+Balance : 9000.0
+
 ====================================================================
 
-Account Number : 1409962987677562-4391
-Name : Akiko
-Father's Name : Shikshima
-Date of Birth : Thu Jun 06 00:00:00 BDT 2024
-Gender : female
+Account Number : 1409962923692730-6826
+Name : Rafsan
+Father's Name : Tahsan
+Date of Birth : Wed Nov 22 00:00:00 BDT 2000
+Gender : male
 Maritial Status : Married
-Address : janjira,Japan
-City : Janjira
-Zip Code : 4545
-Email : AKK.1945@gmail.com
+Address : Gulshan,Dhaka
+City : Dhaka
+Zip Code : 4567
+Email : rafisan@gmail.com
 Religion : Other
-Income : <1,50,000
-Education :Non-Graduate
-Occupation :Student
-Account Type : Savings
-PIN Code : 2291
-Balance: 4000.0
+Income : Above 10,00,000
+Education : Non-Graduate
+Occupation : Business
+Account Type : Current
+PIN Code : 6767
+Balance : 58800.0
 
 ====================================================================
 
-Account Number : 1409963071825731-4569
-Name : wee
-Father's Name : ee
-Date of Birth : null
-Gender : female
-Maritial Status : Unmarried
-Address : 
-City : 
-Zip Code : 
-Email : 

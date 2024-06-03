@@ -1,0 +1,9 @@
+Deposit: 	Tk 6000	(2024-06-03 10:25:44)	Current Balance:11000.0	
+Withdraw: 	Tk 3000	(2024-06-03 10:25:51)	Current Balance:8000.0	
+Transferred: 	Tk2000	2024-06-03 10:26:06	6000.0	Transferred to 1409963062327029-8887
+Electricity Bill: 	Tk 900	(2024-06-03 10:26:45)	Current Balance:5100.0	
+Gas Bill: 	Tk 600	(2024-06-03 10:26:56)	Current Balance:4500.0	
+Deposit: 	Tk 3000	(2024-06-03 10:27:07)	Current Balance:7500.0	
+Transferred: 	Tk1500	2024-06-03 10:27:17	6000.0	Transferred to 1409963062327029-8887
+Received: 	Tk3000	2024-06-03 10:32:21	9000.0	Received from 1409962923692730-6826
+Transferred: 	Tk500	2024-06-03 10:40:01	8500.0	Transferred to 1409962923692730-6826

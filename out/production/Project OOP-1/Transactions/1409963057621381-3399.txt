@@ -1,4 +1,0 @@
-Deposit: 	Tk 600	(2024-06-02 16:46:36)	Current Balance:2100.0	
-Deposit: 	Tk 350	(2024-06-02 17:03:20)	Current Balance:2450.0	
-Water Bill: 	Tk 200	(2024-06-02 20:36:17)	Current Balance:2250.0	
-Transferred: 	Tk250	2024-06-02 21:19:44	2000.0	Transferred to 1409962945282156-1274

@@ -1,0 +1,10 @@
+Withdraw: 	Tk 400	(2024-06-03 10:20:52)	Current Balance:1600.0	
+Withdraw: 	Tk 100	(2024-06-03 10:20:59)	Current Balance:1500.0	
+Deposit: 	Tk 500	(2024-06-03 10:21:37)	Current Balance:2000.0	
+Electricity Bill: 	Tk 800	(2024-06-03 10:22:05)	Current Balance:1200.0	
+Gas Bill: 	Tk 600	(2024-06-03 10:22:13)	Current Balance:600.0	
+Deposit: 	Tk 1000	(2024-06-03 10:22:21)	Current Balance:1600.0	
+Loan: 	Tk 5000	(2024-06-03 10:22:33)	Current Balance:6600.0	
+Withdraw: 	Tk 3000	(2024-06-03 10:22:41)	Current Balance:3600.0	
+Water Bill: 	Tk 700	(2024-06-03 10:22:52)	Current Balance:2900.0	
+Received: 	Tk2000	2024-06-03 10:26:06	4900.0	Received from 1409962994535888-5518

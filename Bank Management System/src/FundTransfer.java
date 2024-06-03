@@ -85,8 +85,10 @@ public class FundTransfer extends JFrame implements ActionListener {
                 if (e.getSource()==transferButton){
                     if (textFieldTransferAmount.getText().equals("") || textFieldAccountNumber.getText().equals("")){
                         JOptionPane.showMessageDialog(null,"Please enter the Amount and Account No. to transfer Fund");
-                    }else {               
+                    }else {
+
                         String currentBalance = balance.CheckBalance(accountNumber, pin);
+
                         if (currentBalance == null) {
                             JOptionPane.showMessageDialog(null, "Could not retrieve current balance");
                         } else {
@@ -109,6 +111,8 @@ public class FundTransfer extends JFrame implements ActionListener {
                                     writer.newLine();
                                     writer.close();
 
+
+                                    Balance balance=new Balance();
                                     String transferAccountBalance = balance.getTransferCurrentBalance(transferAccountNumber);
                                     if (transferAccountBalance == null) {
                                         JOptionPane.showMessageDialog(null, "Could not retrieve transfer account balance");
@@ -118,7 +122,7 @@ public class FundTransfer extends JFrame implements ActionListener {
                                         balance.transferBalance(transferAccountNumber, newTransferAccountBalance);
 
                                         BufferedWriter transferWriter = new BufferedWriter(new FileWriter("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + transferAccountNumber + ".txt", true));
-                                        transferWriter.write("Received: \tTk" + amount + "\t" + formatDateTime + "\t" + newTransferAccountBalance + "\tReceived from " + accountNumber);
+                                        transferWriter.write("Received: \tTk" + amount + "\t" + formatDateTime + "\t" + currentBalance + "\tReceived from " + accountNumber);
                                         transferWriter.newLine();
                                         transferWriter.close();
 
@@ -128,7 +132,8 @@ public class FundTransfer extends JFrame implements ActionListener {
                                     }
                                 }
                             } catch (NumberFormatException ex) {
-                                JOptionPane.showMessageDialog(null, "Invalid amount");
+                                JOptionPane.showMessageDialog(null,
+                                        "Invalid amount");
                             } catch (Exception ex){
                                 ex.printStackTrace();
                             }

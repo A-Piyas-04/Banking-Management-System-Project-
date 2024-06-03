@@ -231,7 +231,6 @@ public class CreateAccountSecondPage extends JFrame implements ActionListener {
                         writer.write("Education : " + edu + "\n");
                         writer.write("Occupation : " + occ + "\n");
 
-
                         if (savingAccOption.isSelected()) {
                             writer.write("Account Type : Savings" + "\n");
                         } else {

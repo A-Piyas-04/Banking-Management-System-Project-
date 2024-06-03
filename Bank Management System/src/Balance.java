@@ -133,7 +133,7 @@ public class Balance{
                     if (attribute.equals("Account Number")) {
                         currentAccountNumber = value;
                     } else if (attribute.equals("Balance") && currentAccountNumber.equals(accountNumber)) {
-                        line = "Balance: " + newBalance;
+                        line = "Balance : " + newBalance;
                     }
                 }
                 lines.add(line);
