@@ -33,7 +33,7 @@ public class login extends JFrame implements ActionListener {
         add(accNumField);
 
         labelPin = new JLabel("PIN: ");
-        labelPin.setFont(new Font("Ralway", Font.BOLD, 28));
+        labelPin.setFont(new Font("Raleway", Font.BOLD, 28));
         labelPin.setForeground(Color.WHITE);
         labelPin.setBounds(150,250,375,30);
         add(labelPin);

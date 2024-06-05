@@ -14,8 +14,8 @@ Income : <1,50,000
 Education : Non-Graduate
 Occupation : Student
 Account Type : Savings
-PIN Code : 908
-Balance : 4900.0
+PIN Code : 9081
+Balance : 4700.0
 
 ====================================================================
 
@@ -35,7 +35,7 @@ Education : Non-Graduate
 Occupation : Self-Employed
 Account Type : Current
 PIN Code : 1179
-Balance : 9000.0
+Balance : 8200.0
 
 ====================================================================
 
@@ -55,7 +55,6 @@ Education : Non-Graduate
 Occupation : Business
 Account Type : Current
 PIN Code : 6767
-Balance : 58800.0
+Balance : 59300.0
 
 ====================================================================
-

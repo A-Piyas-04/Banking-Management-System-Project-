@@ -42,8 +42,8 @@ public class Deletion {
                 System.out.println("Could not rename file");
             }
 
-            File accountManagerFile = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + accountNumber + ".txt");
-            if (!accountManagerFile.delete()) {
+            File transactionFile = new File("D:\\OOP Project-Mark1\\Banking-Management-System-Project-\\Bank Management System\\src\\Transactions\\" + accountNumber + ".txt");
+            if (!transactionFile.delete()) {
                 System.out.println("Could not delete file");
                 return;
             }

@@ -1,0 +1,3 @@
+Deposit: 	Tk 3000	(2024-06-03 17:17:13)	Current Balance:4000.0	
+Electricity Bill: 	Tk 500	(2024-06-03 17:18:06)	Current Balance:3500.0	
+Transferred: 	Tk400	2024-06-03 17:18:51	3100.0	Transferred to 1409963062327029-8887

@@ -118,6 +118,7 @@ public class Loan extends JFrame implements ActionListener {
                 }
             }else if (e.getSource()==backButton){
                 new HomePage(accountNumber,pin);
+                dispose();
             }
         }catch (Exception E){
             E.printStackTrace();

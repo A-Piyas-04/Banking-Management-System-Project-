@@ -14,8 +14,8 @@ Income : <1,50,000
 Education : Non-Graduate
 Occupation : Student
 Account Type : Savings
-PIN Code : 908
-Balance : 4900.0
+PIN Code : 9081
+Balance : 5100.0
 
 ====================================================================
 
@@ -35,7 +35,7 @@ Education : Non-Graduate
 Occupation : Self-Employed
 Account Type : Current
 PIN Code : 1179
-Balance : 8500.0
+Balance : 8200.0
 
 ====================================================================
 
@@ -56,6 +56,25 @@ Occupation : Business
 Account Type : Current
 PIN Code : 6767
 Balance : 59300.0
+
+====================================================================
+Account Number : 1409963022077693-7228
+Name : Pias
+Father's Name : shhjs
+Date of Birth : Wed Jun 12 00:00:00 BDT 2024
+Gender : male
+Maritial Status : Unmarried
+Address : dffff
+City : fff
+Zip Code : fff
+Email : edd@gmail.com
+Religion : Muslim
+Income : <1,50,000
+Education : Graduate
+Occupation : Salaried
+Account Type : Savings
+PIN Code : 5497
+Balance : 3100.0
 
 ====================================================================
 

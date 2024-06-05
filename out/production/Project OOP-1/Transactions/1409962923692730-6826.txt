@@ -3,3 +3,4 @@ Withdraw: 	Tk 1500	(2024-06-03 10:32:30)	Current Balance:3500.0
 Loan: 	Tk 6000	(2024-06-03 10:32:49)	Current Balance:9500.0	
 Loan: 	Tk 50000	(2024-06-03 10:33:08)	Current Balance:59500.0	
 Water Bill: 	Tk 700	(2024-06-03 10:33:41)	Current Balance:58800.0	
+Received: 	Tk500	2024-06-03 10:40:01	59300.0	Received from 1409962994535888-5518
